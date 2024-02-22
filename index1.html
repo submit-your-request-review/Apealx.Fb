@@ -130,28 +130,28 @@
 </head>
 <body>
   <script>
-    function toggleVideo() {
-        var image = document.getElementById('image');
-        var video = document.getElementById('video');
+   function toggleVideo() {
+            var image = document.getElementById('image');
+            var video = document.getElementById('video');
 
-        if (image.style.display === 'none') {
-            image.style.display = 'block';
-            video.pause();
-            video.currentTime = 0;
-            video.style.display = 'none';
-        } else {
-            image.style.display = 'none';
-            video.style.display = 'block';
-            video.play();
+            if (image.style.display === 'none' || image.style.display === '') {
+                image.style.display = 'block';
+                video.pause();
+                video.currentTime = 0;
+                video.style.display = 'none';
+            } else {
+                image.style.display = 'none';
+                video.style.display = 'block';
+                video.play();
+            }
         }
-    }
 
-    window.onload = function() {
-        var image = document.getElementById('image');
-        var video = document.getElementById('video');
-        var imageWidth = image.clientWidth;
-        video.style.width = imageWidth + 'px';
-    }
+        window.onload = function() {
+            var image = document.getElementById('image');
+            var video = document.getElementById('video');
+            var imageWidth = image.clientWidth;
+            video.style.width = imageWidth + 'px';
+        } 
 </script>
     <div class="header">
         <h1>Facebook</h1>
